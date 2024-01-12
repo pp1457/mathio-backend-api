@@ -10,6 +10,8 @@ class UserContest(models.Model):
     user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='participated_contests')
     contest = models.ForeignKey(Contest, on_delete=models.CASCADE)
     solved_problems = models.ManyToManyField(Problem, blank=True)
+    rated_score = models.IntegerField(default=0)
+    unrated_score = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.user_profile.user.username} - {self.contest.title}"

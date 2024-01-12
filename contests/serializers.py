@@ -18,3 +18,14 @@ class ProblemDetailSerializer(serializers.ModelSerializer):
 
 class SubmitAnswerSerializer(serializers.Serializer):
     user_answer = serializers.CharField(required=True, label='Answer')
+
+class CreateContestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contest
+        fields = ['title', 'description', 'start_time', 'end_time']
+
+class AddProblemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Problem
+        fields = ['title', 'description', 'difficulty', 'answer', 'contest']
+
